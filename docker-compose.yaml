@@ -17,6 +17,8 @@ services:
       privnet:
         aliases:
           - upf.free5gc.org
+      ngapup:
+        ipv4_address: 172.15.0.6
 
   db:
     container_name: mongodb
@@ -69,6 +71,9 @@ services:
       privnet:
         aliases:
           - amf.free5gc.org
+      ngapup:
+        ipv4_address: 172.15.0.5
+
     depends_on:
       - free5gc-nrf
 
@@ -218,6 +223,17 @@ services:
       - db
 
 networks:
+  ngapup:
+    name: ngapup
+    driver: macvlan
+    driver_opts:
+      parent: ens160
+    ipam:
+      config:
+        - subnet: 172.15.0.0/24
+          ip_range: 172.15.0.0/24
+          gateway: 172.15.0.1
+
   privnet:
     ipam:
       driver: default
@@ -225,6 +241,14 @@ networks:
         - subnet: 10.100.200.0/24
     driver_opts:
       com.docker.network.bridge.name: br-free5gc
+  gilan:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.20.0.0/24
+    driver_opts:
+      com.docker.network.bridge.name: br-free5gc-2
+
 
 volumes:
   dbdata:

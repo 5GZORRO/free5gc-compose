@@ -15,7 +15,7 @@ configuration:
     - addr: upf.free5gc.org
 
   gtpu:
-    - addr: upf.free5gc.org
+    - addr: 172.15.0.6
     # [optional] gtpu.name
     # - name: upf.5gc.nctu.me
     # [optional] gtpu.ifname
