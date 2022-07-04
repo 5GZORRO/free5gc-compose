@@ -1,0 +1,24 @@
+FROM free5gc/builder-base as udm
+
+ENV DEBIAN_FRONTEND noninteractive
+
+# Get Free5GC
+COPY free5gc/ $GOPATH/src/free5gc/
+
+RUN cd $GOPATH/src/free5gc \
+    && make udm
+
+# Alpine is used for debug purpose. You can use scratch for a smaller footprint.
+FROM alpine:3.15
+
+WORKDIR /free5gc
+RUN mkdir -p config/TLS/ public
+
+# Copy executables
+COPY --from=udm /go/src/free5gc/bin/udm ./
+
+# Copy configuration files (not used for now)
+COPY --from=udm /go/src/free5gc/config/* ./config/
+
+# Copy default certificates (not used for now)
+COPY --from=udm /go/src/free5gc/config/TLS/* ./config/TLS/
