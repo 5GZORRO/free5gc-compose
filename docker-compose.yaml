@@ -197,29 +197,6 @@ services:
       - db
       - free5gc-nrf
 
-  free5gc-n3iwf:
-    container_name: n3iwf
-    build:
-      context: ./nf_n3iwf
-      args:
-        DEBUG_TOOLS: "false"
-    command: sh -c "./n3iwf-ipsec.sh && ./n3iwf -c ./config/n3iwfcfg.yaml"
-    volumes:
-      - ./config/n3iwfcfg.yaml:/free5gc/config/n3iwfcfg.yaml
-      - ./config/n3iwf-ipsec.sh:/free5gc/n3iwf-ipsec.sh
-    environment:
-      GIN_MODE: release
-    cap_add:
-      - NET_ADMIN
-    networks:
-      privnet:
-        aliases:
-          - n3iwf.free5gc.org
-    depends_on:
-      - free5gc-amf
-      - free5gc-smf
-      - free5gc-upf
-
   free5gc-webui:
     container_name: webui
     build:
@@ -239,26 +216,6 @@ services:
       - "5000:5000"
     depends_on:
       - db
-
-  ueransim:
-    container_name: ueransim
-    build:
-      context: ./ueransim
-    command: ./nr-gnb -c ./config/gnbcfg.yaml
-    volumes:
-      - ./config/gnbcfg.yaml:/ueransim/config/gnbcfg.yaml
-      - ./config/uecfg.yaml:/ueransim/config/uecfg.yaml
-    cap_add:
-      - NET_ADMIN
-    devices:
-      - "/dev/net/tun"
-    networks:
-      privnet:
-        aliases:
-          - gnb.free5gc.org
-    depends_on:
-      - free5gc-amf
-      - free5gc-upf
 
 networks:
   privnet:
