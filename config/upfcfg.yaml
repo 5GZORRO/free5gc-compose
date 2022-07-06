@@ -4,7 +4,7 @@ info:
 
 configuration:
   # debugLevel: panic|fatal|error|warn|info|debug|trace
-  debugLevel: info
+  debugLevel: debug
   ReportCaller: false
 
   # packetBufferHoldTime should be longer than Paging retry-out time of AMF.

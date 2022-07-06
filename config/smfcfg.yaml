@@ -60,17 +60,29 @@ configuration:
 # ReportCaller: enable the caller report or not, value: true or false
 logger:
   SMF:
-    debugLevel: info
+    debugLevel: trace
     ReportCaller: false
   NAS:
-    debugLevel: info
+    debugLevel: trace
     ReportCaller: false
   NGAP:
-    debugLevel: info
+    debugLevel: trace
     ReportCaller: false
   Aper:
     debugLevel: info
     ReportCaller: false
+  PathUtil:
+    debugLevel: debug
+    ReportCaller: false
+  OpenApi:
+    debugLevel: debug
+    ReportCaller: false
   PFCP:
-    debugLevel: info
+    debugLevel: trace
+    ReportCaller: false
+  PduSess:
+    debugLevel: trace
+    ReportCaller: false
+  CTX:
+    debugLevel: trace
     ReportCaller: false
