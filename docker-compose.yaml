@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   free5gc-upf-r1:
-    container_name: upf
+    container_name: upf-r1
     build:
       context: ./nf_upf
       args:
@@ -22,7 +22,7 @@ services:
 
 
   free5gc-upf-t1:
-    container_name: upf
+    container_name: upf-t1
     build:
       context: ./nf_upf
       args:
@@ -41,7 +41,7 @@ services:
         ipv4_address: 172.15.0.7
 
   free5gc-upf-t2:
-    container_name: upf
+    container_name: upf-t2
     build:
       context: ./nf_upf
       args:
@@ -61,7 +61,7 @@ services:
 
 
   free5gc-upf-c1:
-    container_name: upf
+    container_name: upf-c1
     build:
       context: ./nf_upf
       args:
@@ -80,7 +80,7 @@ services:
         ipv4_address: 172.15.0.9
 
   free5gc-upf-c2:
-    container_name: upf
+    container_name: upf-c2
     build:
       context: ./nf_upf
       args:
@@ -99,7 +99,7 @@ services:
         ipv4_address: 172.15.0.10
 
   free5gc-upf-c3:
-    container_name: upf
+    container_name: upf-c3
     build:
       context: ./nf_upf
       args:
@@ -118,7 +118,7 @@ services:
         ipv4_address: 172.15.0.11
 
   free5gc-upf-c4:
-    container_name: upf
+    container_name: upf-c4
     build:
       context: ./nf_upf
       args:
