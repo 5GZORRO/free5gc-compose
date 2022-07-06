@@ -274,7 +274,13 @@ services:
           - smf.free5gc.org
     depends_on:
       - free5gc-nrf
-      - free5gc-upf
+      - free5gc-upf-r1
+      - free5gc-upf-t1
+      - free5gc-upf-t2
+      - free5gc-upf-c1
+      - free5gc-upf-c2
+      - free5gc-upf-c3
+      - free5gc-upf-c4
 
   free5gc-udm:
     container_name: udm
