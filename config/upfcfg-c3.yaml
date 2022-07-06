@@ -1,0 +1,28 @@
+info:
+  version: 1.0.0
+  description: UPF configuration
+
+configuration:
+  # debugLevel: panic|fatal|error|warn|info|debug|trace
+  debugLevel: debug
+  ReportCaller: false
+
+  # packetBufferHoldTime should be longer than Paging retry-out time of AMF.
+  # unit: seconds
+  packetBufferHoldTime: 30
+
+  pfcp:
+    - addr: upf-c3.free5gc.org
+
+  gtpu:
+    - addr: 172.15.0.11
+    # [optional] gtpu.name
+    # - name: upf.5gc.nctu.me
+    # [optional] gtpu.ifname
+    # - ifname: gtpif
+
+  dnn_list:
+    - dnn: internet
+      cidr: 60.63.0.0/16
+      # [optional] apn_list[*].natifname
+      # natifname: eth0
