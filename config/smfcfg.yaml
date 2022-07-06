@@ -34,8 +34,8 @@ configuration:
     upNodes: # information of userplane node (AN or UPF)
       gNB: # the name of the node
         type: AN # the type of the node (AN or UPF)
-      UPF:  # the name of the node
-        type: UPF-C1 # the type of the node (AN or UPF)
+      UPF-C1:  # the name of the node
+        type: UPF # the type of the node (AN or UPF)
         nodeID: upf-c1.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
         sNssaiUpfInfos: # S-NSSAI information list for this UPF
           - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
@@ -44,7 +44,7 @@ configuration:
             dnnUpfInfoList: # DNN information list for this S-NSSAI
               - dnn: internet
                 pools:
-                  - cidr: 10.61.0.0/16
+                  - cidr: 60.61.0.0/16
         interfaces: # Interface list for this UPF
           - interfaceType: N3 # the type of the interface (N3 or N9)
             endpoints: # the IP address of this N3/N9 interface on this UPF
