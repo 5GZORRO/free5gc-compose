@@ -6,7 +6,7 @@ services:
     build:
       context: ./nf_upf
       args:
-        DEBUG_TOOLS: "false"
+        DEBUG_TOOLS: "true"
     command: bash -c "./upf-iptables.sh && ./free5gc-upfd -c ./config/upfcfg.yaml"
     volumes:
       - ./config/upfcfg-r1.yaml:/free5gc/config/upfcfg.yaml
@@ -26,7 +26,7 @@ services:
     build:
       context: ./nf_upf
       args:
-        DEBUG_TOOLS: "false"
+        DEBUG_TOOLS: "true"
     command: bash -c "./upf-iptables.sh && ./free5gc-upfd -c ./config/upfcfg.yaml"
     volumes:
       - ./config/upfcfg-t1.yaml:/free5gc/config/upfcfg.yaml
@@ -45,7 +45,7 @@ services:
     build:
       context: ./nf_upf
       args:
-        DEBUG_TOOLS: "false"
+        DEBUG_TOOLS: "true"
     command: bash -c "./upf-iptables.sh && ./free5gc-upfd -c ./config/upfcfg.yaml"
     volumes:
       - ./config/upfcfg-t2.yaml:/free5gc/config/upfcfg.yaml
@@ -65,7 +65,7 @@ services:
     build:
       context: ./nf_upf
       args:
-        DEBUG_TOOLS: "false"
+        DEBUG_TOOLS: "true"
     command: bash -c "./upf-iptables.sh && ./free5gc-upfd -c ./config/upfcfg.yaml"
     volumes:
       - ./config/upfcfg-c1.yaml:/free5gc/config/upfcfg.yaml
@@ -84,7 +84,7 @@ services:
     build:
       context: ./nf_upf
       args:
-        DEBUG_TOOLS: "false"
+        DEBUG_TOOLS: "true"
     command: bash -c "./upf-iptables.sh && ./free5gc-upfd -c ./config/upfcfg.yaml"
     volumes:
       - ./config/upfcfg-c2.yaml:/free5gc/config/upfcfg.yaml
@@ -103,7 +103,7 @@ services:
     build:
       context: ./nf_upf
       args:
-        DEBUG_TOOLS: "false"
+        DEBUG_TOOLS: "true"
     command: bash -c "./upf-iptables.sh && ./free5gc-upfd -c ./config/upfcfg.yaml"
     volumes:
       - ./config/upfcfg-c3.yaml:/free5gc/config/upfcfg.yaml
@@ -122,7 +122,7 @@ services:
     build:
       context: ./nf_upf
       args:
-        DEBUG_TOOLS: "false"
+        DEBUG_TOOLS: "true"
     command: bash -c "./upf-iptables.sh && ./free5gc-upfd -c ./config/upfcfg.yaml"
     volumes:
       - ./config/upfcfg-c4.yaml:/free5gc/config/upfcfg.yaml
