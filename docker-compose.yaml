@@ -300,7 +300,7 @@ services:
         aliases:
           - smf-ext.free5gc.org
     depends_on:
-      - smf
+      - free5gc-smf
   free5gc-udm:
     container_name: udm
     build:
