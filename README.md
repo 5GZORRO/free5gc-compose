@@ -16,21 +16,56 @@ You can setup your own config in [config](./config) folder and [docker-compose.y
 Because we need to create tunnel interface, we need to use privileged container with root permission.
 
 ```bash
-# Clone the project
-git clone https://github.com/free5gc/free5gc-compose.git
+# Clone this project
+cd ~
+git clone git@github.ibm.com:WEIT/free5gc-compose.git
 cd free5gc-compose
+git checkout freeg5c-compose-e762f48-nf_build_upfs-dynamic_load
+
+# clone free5gc v3.1.1
+cd base
+git clone --recursive -b v3.1.1 -j `nproc` https://github.com/free5gc/free5gc.git
+
+# replace smf
+cd free5gc/NFs
+rm -Rf smf
+git clone git@github.ibm.com:WEIT/smf.git
+cd smf
+git checkout smf-84c979a-dynamic_load
 
 # Build the images
-make base
-docker-compose build
+cd ~/free5gc-compose
+
+# copy additional files
+nf_smf-ext/copy.sh
+
+sudo make all
+sudo docker-compose build
 
 # Run it
 sudo docker-compose up # add -d to run in background mode
 ```
 
+### Add UPFs to SMF model
+
+```
+cd ~/free5gc-compose
+cd config/smf
+
+./init.sh
+```
+
+Ensure to receive `{"status":"OK"}` for all UPFs
+
 Destroy the established container resource after testing:
 ```
 docker-compose rm
+```
+
+### List UPFs in SMF model
+
+```
+curl -H "Content-type: application/json" -X GET http://127.0.0.1:38000/upi/v1/upf
 ```
 
 ## Troubleshooting
