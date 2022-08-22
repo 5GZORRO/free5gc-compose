@@ -1,0 +1,25 @@
+{
+    "up_nodes": {
+        "UPF-T2": {
+            "type": "UPF",
+            "node_id": "upf-t2.free5gc.org",
+            "sNssaiUpfInfos": [
+              {
+                  "sNssai": {"sst": 1, "sd": "010203"},
+                  "dnnUpfInfoList": [
+                      {
+                          "dnn": "internet"
+                      }
+                  ]
+              }
+            ],
+            "interfaces": [
+                {
+                    "interfaceType": "N9",
+                    "endpoints": ["172.15.0.8"],
+                    "networkInstance": "internet"
+                }
+            ]
+        }
+    }
+}

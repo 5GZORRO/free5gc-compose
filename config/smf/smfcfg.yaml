@@ -1,0 +1,72 @@
+info:
+  version: 1.0.2
+  description: SMF initial local configuration
+
+configuration:
+  smfName: SMF
+  sbi:
+    scheme: http
+    registerIPv4: smf.free5gc.org
+    bindingIPv4: smf.free5gc.org
+    port: 8000
+    tls:
+      key: free5gc/support/TLS/smf.key
+      pem: free5gc/support/TLS/smf.pem
+  serviceNameList:
+    - nsmf-pdusession
+    - nsmf-event-exposure
+    - nsmf-oam
+  snssaiInfos:
+    - sNssai:
+        sst: 1
+        sd: 010203
+      dnnInfos:
+        - dnn: internet
+          dns:
+            ipv4: 8.8.8.8
+  plmnList:
+    - mcc: "208"
+      mnc: "93"
+  pfcp:
+    addr: smf.free5gc.org
+  userplane_information:
+    up_nodes:
+      gNB1:
+        type: AN
+        an_ip: 172.15.0.211
+
+    links: null
+
+  nrfUri: http://nrf.free5gc.org:8000
+  locality: area1
+  ulcl: true
+  smfExtUri: http://smf-ext.free5gc.org:8080
+
+logger:
+  SMF:
+    debugLevel: trace
+    ReportCaller: false
+  NAS:
+    debugLevel: trace
+    ReportCaller: false
+  NGAP:
+    debugLevel: trace
+    ReportCaller: false
+  Aper:
+    debugLevel: info
+    ReportCaller: false
+  PathUtil:
+    debugLevel: debug
+    ReportCaller: false
+  OpenApi:
+    debugLevel: debug
+    ReportCaller: false
+  PFCP:
+    debugLevel: trace
+    ReportCaller: false
+  PduSess:
+    debugLevel: trace
+    ReportCaller: false
+  CTX:
+    debugLevel: trace
+    ReportCaller: false

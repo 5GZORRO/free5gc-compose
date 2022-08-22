@@ -263,9 +263,11 @@ services:
     command: ./smf -c ./config/smfcfg.yaml -u ./config/uerouting.yaml
     expose:
       - "8000"
+    ports:
+      - "38000:8000"
     volumes:
-      - ./config/smfcfg.yaml:/free5gc/config/smfcfg.yaml
-      - ./config/uerouting.yaml:/free5gc/config/uerouting.yaml
+      - ./config/smf/smfcfg.yaml:/free5gc/config/smfcfg.yaml
+      - ./config/smf/uerouting.yaml:/free5gc/config/uerouting.yaml
     environment:
       GIN_MODE: release
     networks:
@@ -282,6 +284,23 @@ services:
       - free5gc-upf-c3
       - free5gc-upf-c4
 
+  free5gc-smf-ext:
+    container_name: smf-ext
+    build:
+      context: ./nf_smf-ext
+    expose:
+      - "8080"
+    ports:
+      - "38080:8080"
+    volumes:
+      - ./config/smf/init-ext.sh:/init.sh
+
+    networks:
+      privnet:
+        aliases:
+          - smf-ext.free5gc.org
+    depends_on:
+      - smf
   free5gc-udm:
     container_name: udm
     build:
