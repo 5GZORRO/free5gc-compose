@@ -29,11 +29,10 @@ configuration:
       mnc: "93"
   pfcp:
     addr: smf.free5gc.org
-  userplane_information:
-    up_nodes:
+  userplaneInformation:
+    upNodes:
       gNB1:
         type: AN
-        an_ip: 172.15.0.211
 
     links: null
 
