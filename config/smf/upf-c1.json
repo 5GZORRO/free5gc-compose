@@ -1,8 +1,8 @@
 {
-    "up_nodes": {
+    "upNodes": {
         "UPF-C1": {
             "type": "UPF",
-            "node_id": "upf-c1.free5gc.org",
+            "nodeID": "upf-c1.free5gc.org",
             "sNssaiUpfInfos": [
               {
                   "sNssai": {"sst": 1, "sd": "010203"},
