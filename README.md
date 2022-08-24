@@ -16,13 +16,35 @@ You can setup your own config in [config](./config) folder and [docker-compose.y
 Because we need to create tunnel interface, we need to use privileged container with root permission.
 
 ```bash
-# Clone the project
-git clone https://github.com/free5gc/free5gc-compose.git
+# Clone this project
+cd ~
+git clone git@github.ibm.com:WEIT/free5gc-compose.git
 cd free5gc-compose
+git checkout free5gc_compose-e762f48-nf_build_upfs-multiple_gnbs
+
+# clone free5gc v3.1.1
+cd base
+git clone --recursive -b v3.1.1 -j `nproc` https://github.com/free5gc/free5gc.git
+
+# replace smf
+cd free5gc/NFs
+rm -Rf smf
+git clone git@github.ibm.com:WEIT/smf.git
+cd smf
+git checkout smf-84c979a_multiple-gnbs
+
+# replace amf
+cd ~/free5gc-compose/base/free5gc/NFs
+rm -Rf amf
+git clone git@github.ibm.com:WEIT/amf.git
+cd amf
+git checkout amf-03f9848-uelocation
 
 # Build the images
-make base
-docker-compose build
+cd ~/free5gc-compose
+
+sudo make all
+sudo docker-compose build
 
 # Run it
 sudo docker-compose up # add -d to run in background mode
