@@ -1,0 +1,8 @@
+{
+    "upNodes": {
+        "gNB1": {
+            "type": "AN",
+            "nrCellId": "000000010"
+        }
+    }
+}

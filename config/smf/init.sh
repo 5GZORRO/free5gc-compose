@@ -2,6 +2,10 @@
 
 URL=${1:-http://127.0.0.1:38000}
 
+
+curl -H "Content-type: application/json" -X POST -d "@gnb1.json" $URL/upi/v1/upf
+curl -H "Content-type: application/json" -X POST -d "@gnb2.json" $URL/upi/v1/upf
+
 echo ""
 echo ""
 echo "-=-=-=-=-=-= TRACE -=-=-=-=-=-=-=-=-=-"
