@@ -18,10 +18,11 @@ Because we need to create tunnel interface, we need to use privileged container 
 ```bash
 # Clone the project
 git clone https://github.com/free5gc/free5gc-compose.git
+git checkout nf-build-upfs
 cd free5gc-compose
 
 # Build the images
-make base
+make all
 docker-compose build
 
 # Run it
@@ -31,6 +32,11 @@ sudo docker-compose up # add -d to run in background mode
 Destroy the established container resource after testing:
 ```
 docker-compose rm
+```
+
+Delete orphan images
+```
+sudo docker rmi $(sudo docker images --filter "dangling=true" -q --no-trunc)
 ```
 
 ## Troubleshooting
