@@ -10,7 +10,7 @@ curl -X PUT \
 curl -X PUT \
   $URL/links \
   -H 'content-type: application/json' \
-  -d '{"A": "gNB1", "B": "UPF-C2"}'
+  -d '{"A": "gNB2", "B": "UPF-C2"}'
 
 curl -X GET \
   $URL/links \
