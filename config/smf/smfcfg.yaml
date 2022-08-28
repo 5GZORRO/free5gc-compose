@@ -33,6 +33,10 @@ configuration:
     upNodes:
       gNB1:
         type: AN
+        nrCellId: "000000010"
+      gNB2:
+        type: AN
+        nrCellId: "000000020"
 
     links: null
 
