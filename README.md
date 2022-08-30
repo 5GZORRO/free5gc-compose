@@ -20,7 +20,7 @@ Because we need to create tunnel interface, we need to use privileged container 
 cd ~
 git clone git@github.ibm.com:WEIT/free5gc-compose.git
 cd free5gc-compose
-git checkout e762f48-nf_build_upfs-dynamic_load-multilpe_gnbs
+git checkout e762f48-nf_build_upfs-dynamic_load-multilpe_gnbs-tls_volume
 
 # clone free5gc v3.1.1
 cd base

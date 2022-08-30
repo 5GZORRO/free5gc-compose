@@ -12,7 +12,7 @@ RUN cd $GOPATH/src/free5gc \
 FROM alpine:3.15
 
 WORKDIR /free5gc
-RUN mkdir -p config/TLS/ public
+RUN mkdir -p config/ support/TLS/ public
 
 # Copy executables
 COPY --from=webconsole /go/src/free5gc/webconsole/bin/webconsole ./webui
@@ -24,4 +24,4 @@ COPY --from=webconsole /go/src/free5gc/webconsole/public ./public
 COPY --from=webconsole /go/src/free5gc/config/* ./config/
 
 # Copy default certificates (not used for now)
-COPY --from=webconsole /go/src/free5gc/config/TLS/* ./config/TLS/
+COPY --from=webconsole /go/src/free5gc/config/TLS/* ./support/TLS/

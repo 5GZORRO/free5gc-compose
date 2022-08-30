@@ -12,7 +12,7 @@ RUN cd $GOPATH/src/free5gc \
 FROM alpine:3.15
 
 WORKDIR /free5gc
-RUN mkdir -p config/TLS/ public
+RUN mkdir -p config/ support/TLS/ public
 
 # Copy executables
 COPY --from=n3iwf /go/src/free5gc/bin/n3iwf ./
@@ -21,4 +21,4 @@ COPY --from=n3iwf /go/src/free5gc/bin/n3iwf ./
 COPY --from=n3iwf /go/src/free5gc/config/* ./config/
 
 # Copy default certificates (not used for now)
-COPY --from=n3iwf /go/src/free5gc/config/TLS/* ./config/TLS/
+COPY --from=n3iwf /go/src/free5gc/config/TLS/* ./support/TLS/
