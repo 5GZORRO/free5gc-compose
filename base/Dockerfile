@@ -1,6 +1,6 @@
 #
 # IMPORTANT: run
-# git clone --recursive -b v3.1.1 -j `nproc` https://github.com/free5gc/free5gc.git
+# git clone --recursive -b v3.2.1 -j `nproc` https://github.com/free5gc/free5gc.git
 # into this folder before building the NFs
 #
 FROM golang:1.14.4-stretch AS builder

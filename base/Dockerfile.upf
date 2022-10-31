@@ -15,15 +15,10 @@ WORKDIR /free5gc
 RUN mkdir -p config/ support/TLS/ public
 
 # Copy executables
-COPY --from=upf /go/src/free5gc/NFs/upf/build/bin/* ./
-
-# Copy linked libs
-COPY --from=upf /go/src/free5gc/NFs/upf/build/updk/src/third_party/libgtp5gnl/lib/libgtp5gnl.so.0 ./
-COPY --from=upf /go/src/free5gc/NFs/upf/build/utlt_logger/liblogger.so ./
+COPY --from=upf /go/src/free5gc/bin/* ./
 
 # Copy configuration files (not used for now)
 COPY --from=upf /go/src/free5gc/config/* ./config/
-COPY --from=upf /go/src/free5gc/NFs/upf/build/config/* ./config/
 
 # Copy default certificates (not used for now)
 COPY --from=upf /go/src/free5gc/config/TLS/* ./support/TLS/
