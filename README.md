@@ -20,7 +20,7 @@ Because we need to create tunnel interface, we need to use privileged container 
 cd ~
 git clone git@github.ibm.com:WEIT/free5gc-compose.git
 cd free5gc-compose
-git checkout e762f48-nf_build_upfs-dynamic_load-multilpe_gnbs-tls_volume
+git checkout e762f48-nf_build_upfs-dynamic_load-multilpe_gnbs-tls_volume-relocate_upf
 
 # clone free5gc v3.1.1
 cd base
@@ -31,7 +31,7 @@ cd free5gc/NFs
 rm -Rf smf
 git clone git@github.ibm.com:WEIT/smf.git
 cd smf
-git checkout smf-84c979a-dynamic_load-multiple_gnbs
+git checkout smf-84c979a-dynamic_load-multiple_gnbs-delete_upf
 
 # replace amf
 cd ~/free5gc-compose/base/free5gc/NFs

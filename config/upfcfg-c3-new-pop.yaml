@@ -12,7 +12,7 @@ configuration:
   packetBufferHoldTime: 30
 
   pfcp:
-    - addr: upf-c4.free5gc.org
+    - addr: upf-c3-new-pop.free5gc.org
 
   gtpu:
     - addr: 172.15.0.12
@@ -23,6 +23,6 @@ configuration:
 
   dnn_list:
     - dnn: internet
-      cidr: 60.64.0.0/16
+      cidr: 60.63.0.0/16
       # [optional] apn_list[*].natifname
       # natifname: eth0

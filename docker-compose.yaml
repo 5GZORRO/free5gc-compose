@@ -1,103 +1,6 @@
 version: '3.8'
 
 services:
-  free5gc-upf-r1:
-    container_name: upf-r1
-    build:
-      context: ./nf_upf
-      args:
-        DEBUG_TOOLS: "true"
-    command: bash -c "./upf-iptables.sh && ./free5gc-upfd -c ./config/upfcfg.yaml"
-    volumes:
-      - ./config/upfcfg-r1.yaml:/free5gc/config/upfcfg.yaml
-      - ./config/upf-iptables.sh:/free5gc/upf-iptables.sh
-    cap_add:
-      - NET_ADMIN
-    networks:
-      privnet:
-        aliases:
-          - upf-r1.free5gc.org
-      ngapup:
-        ipv4_address: 172.15.0.6
-
-
-  free5gc-upf-t1:
-    container_name: upf-t1
-    build:
-      context: ./nf_upf
-      args:
-        DEBUG_TOOLS: "true"
-    command: bash -c "./upf-iptables.sh && ./free5gc-upfd -c ./config/upfcfg.yaml"
-    volumes:
-      - ./config/upfcfg-t1.yaml:/free5gc/config/upfcfg.yaml
-      - ./config/upf-iptables.sh:/free5gc/upf-iptables.sh
-    cap_add:
-      - NET_ADMIN
-    networks:
-      privnet:
-        aliases:
-          - upf-t1.free5gc.org
-      ngapup:
-        ipv4_address: 172.15.0.7
-
-  free5gc-upf-t2:
-    container_name: upf-t2
-    build:
-      context: ./nf_upf
-      args:
-        DEBUG_TOOLS: "true"
-    command: bash -c "./upf-iptables.sh && ./free5gc-upfd -c ./config/upfcfg.yaml"
-    volumes:
-      - ./config/upfcfg-t2.yaml:/free5gc/config/upfcfg.yaml
-      - ./config/upf-iptables.sh:/free5gc/upf-iptables.sh
-    cap_add:
-      - NET_ADMIN
-    networks:
-      privnet:
-        aliases:
-          - upf-t2.free5gc.org
-      ngapup:
-        ipv4_address: 172.15.0.8
-
-
-  free5gc-upf-c1:
-    container_name: upf-c1
-    build:
-      context: ./nf_upf
-      args:
-        DEBUG_TOOLS: "true"
-    command: bash -c "./upf-iptables.sh && ./free5gc-upfd -c ./config/upfcfg.yaml"
-    volumes:
-      - ./config/upfcfg-c1.yaml:/free5gc/config/upfcfg.yaml
-      - ./config/upf-iptables.sh:/free5gc/upf-iptables.sh
-    cap_add:
-      - NET_ADMIN
-    networks:
-      privnet:
-        aliases:
-          - upf-c1.free5gc.org
-      ngapup:
-        ipv4_address: 172.15.0.9
-
-  free5gc-upf-c2:
-    container_name: upf-c2
-    build:
-      context: ./nf_upf
-      args:
-        DEBUG_TOOLS: "true"
-    command: bash -c "./upf-iptables.sh && ./free5gc-upfd -c ./config/upfcfg.yaml"
-    volumes:
-      - ./config/upfcfg-c2.yaml:/free5gc/config/upfcfg.yaml
-      - ./config/upf-iptables.sh:/free5gc/upf-iptables.sh
-    cap_add:
-      - NET_ADMIN
-    networks:
-      privnet:
-        aliases:
-          - upf-c2.free5gc.org
-      ngapup:
-        ipv4_address: 172.15.0.10
-
   free5gc-upf-c3:
     container_name: upf-c3
     build:
@@ -117,22 +20,22 @@ services:
       ngapup:
         ipv4_address: 172.15.0.11
 
-  free5gc-upf-c4:
-    container_name: upf-c4
+  free5gc-upf-c3-new-pop:
+    container_name: upf-c3-new-pop
     build:
       context: ./nf_upf
       args:
         DEBUG_TOOLS: "true"
     command: bash -c "./upf-iptables.sh && ./free5gc-upfd -c ./config/upfcfg.yaml"
     volumes:
-      - ./config/upfcfg-c4.yaml:/free5gc/config/upfcfg.yaml
+      - ./config/upfcfg-c3-new-pop.yaml:/free5gc/config/upfcfg.yaml
       - ./config/upf-iptables.sh:/free5gc/upf-iptables.sh
     cap_add:
       - NET_ADMIN
     networks:
       privnet:
         aliases:
-          - upf-c4.free5gc.org
+          - upf-c3-new-pop.free5gc.org
       ngapup:
         ipv4_address: 172.15.0.12
 
@@ -276,13 +179,8 @@ services:
           - smf.free5gc.org
     depends_on:
       - free5gc-nrf
-      - free5gc-upf-r1
-      - free5gc-upf-t1
-      - free5gc-upf-t2
-      - free5gc-upf-c1
-      - free5gc-upf-c2
       - free5gc-upf-c3
-      - free5gc-upf-c4
+      - free5gc-upf-c3-new-pop
 
   free5gc-smf-ext:
     container_name: smf-ext

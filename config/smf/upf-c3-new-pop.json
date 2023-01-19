@@ -1,15 +1,15 @@
 {
     "upNodes": {
-        "UPF-C4": {
+        "UPF-C3": {
             "type": "UPF",
-            "nodeID": "upf-c4.free5gc.org",
+            "nodeID": "upf-c3-new-pop.free5gc.org",
             "sNssaiUpfInfos": [
               {
                   "sNssai": {"sst": 1, "sd": "010203"},
                   "dnnUpfInfoList": [
                       {
                           "dnn": "internet",
-                          "pools": [{"cidr": "60.64.0.0/24"}]
+                          "pools": [{"cidr": "60.63.0.0/24"}]
                       }
                   ]
               }
